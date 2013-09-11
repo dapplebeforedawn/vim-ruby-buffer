@@ -42,7 +42,7 @@ function! s:RubyCompileUpdate(startline, endline)
   endif
 
   " Compile input.
-  let output = system(g:ruby_compiler . ' 2>&1', 'p ->{'.input.'}.call')
+  let output = system(g:ruby_compiler . ' 2>&1', "p ->{\n".input."\n}.call")
 
   " Be sure we're in the CoffeeCompile buffer before overwriting.
   if exists('b:ruby_compile_buf')
